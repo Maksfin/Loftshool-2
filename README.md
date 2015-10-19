@@ -1,12 +1,12 @@
 КАК УСТАНОВИТЬ МОЙ ПРОЕКТ
 
-git clone https://github.com/Maksfin/Loftshool-1.git site
+1. git clone https://github.com/Maksfin/Loftshool-1.git site
 
-cd site
+2. cd site
 
-bower i
+3. bower i
 
-npm i
+4. npm i
 
-gulp
+5. gulp
 
