@@ -1,3 +1,5 @@
 app/bower
+app/css
+app/*.html
 node_modules
 dist
