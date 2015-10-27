@@ -1,6 +1,6 @@
 КАК УСТАНОВИТЬ МОЙ ПРОЕКТ
 
-1. git clone https://github.com/Maksfin/Loftshool-1.git site
+1. git clone https://github.com/Maksfin/Loftshool-2.git site
 
 2. cd site
 
