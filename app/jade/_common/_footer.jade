@@ -1,0 +1,11 @@
+footer.footer
+	.container
+		a(href="#" title="COOLTECH").footer__logo
+			img(src="" alt="COOLTECH").footer__logo-img
+			span.footer__logo-text COOLTECH
+		ul.socials.socials__link_footer
+				each social in socials
+					li(class="socials__item socials__item_" + social)
+						a(href="#").socials__link= social
+		.footer__nav
+			+ul('footer__nav', navigation, -1, true)

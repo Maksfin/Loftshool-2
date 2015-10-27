@@ -5,6 +5,7 @@ var gulp = require("gulp"),
     wiredep = require('wiredep').stream,
     useref = require('gulp-useref'),
     uglify = require('gulp-uglify'),
+    // plumber = require('gulp-plumber'),
     del= require('del'),
     gulpif = require('gulp-if'),
     filter = require('gulp-filter'),
@@ -21,7 +22,8 @@ var gulp = require("gulp"),
 
 // Компилируем Jade в html
 gulp.task('jade', function() {
-    gulp.src('app/jade/pages/*.jade')
+    gulp.src('app/jade/_pages/*.jade')
+    // .pipe(plumber())
     .pipe(jade({
        pretty: '\t'
       }))
@@ -33,6 +35,7 @@ gulp.task('jade', function() {
 // Sccs - Compass
 gulp.task('compass', function() {
   gulp.src('app/sass/**/*.scss')
+    // .pipe(plumber())
     .pipe(compass({
       config_file: 'config.rb', 
       css: 'app/css',
@@ -54,12 +57,12 @@ gulp.task('server', function () {
 
 // Подключаем ссылки на bower для jade
 gulp.task('wiredep', function () {
-  gulp.src('app/jade/pages/*.jade')
+  gulp.src('app/*.html')
     .pipe(wiredep({
         exclude: ['modernizr'],
         ignorePath: /^(\.\.\/)*\.\./
       }))
-      .pipe(gulp.dest('app/jade/common'));
+      .pipe(gulp.dest('app/'));
 });
 
 // слежка и запуск задач
@@ -75,7 +78,7 @@ gulp.task('watch', function () {
 });
 
 // Задача по-умолчанию
-gulp.task('default', ['jade', 'compass', 'server', 'watch']);
+gulp.task('default', ['jade', 'compass', 'watch', 'server']);
 
 // Более наглядный вывод ошибок
 var log = function (error) {

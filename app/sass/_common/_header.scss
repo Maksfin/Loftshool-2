@@ -1,0 +1,166 @@
+
+@import "icons/*.png";
+
+.header {
+	 min-width: $container-width +20;
+
+	&__address {
+		@include inlineblock;
+		position: absolute;
+		top:25px;
+		right:257px;
+		font-size: $font-size_main;
+		color: $main_grey;
+		line-height: 27px;
+		padding-left: 20px;
+		background: url("../img/elements/map.png") 0 5px no-repeat;
+	}
+
+	&__phone {
+		font-size: $font-size_main +4;
+		font-family: $font-semibold;
+		color: $main_grey;
+		position: absolute;
+		line-height: 27px;
+		right: 0;
+		top: 25px;
+		text-decoration: none;
+	}
+
+	&__logo {
+		display:block;
+		position: absolute;
+		top:30px;
+		left: 0;
+			
+		&-img {
+			display: block;
+			max-width: 240px;
+			min-height: 37px;
+		}
+	}
+
+	&__seach {
+		position: absolute;
+		top: 30px;
+		left: 296px;
+		@include clearfix;
+	}
+
+	&__seach-input {
+		float:left;
+		width: 287px;
+		padding: 8px;
+		background: $main_bg-input;
+		border: 1px solid #dee1e4;
+		font-size: $font-size_main;
+	}
+
+	&__seach-submit {
+		border:none;
+		width: 77px;
+		height: 36px;
+		padding: 0;
+		outline: none;
+		color: $main_white;
+		background: $main_orange;
+		font-family: $font-semibold;
+		font-size: $font-size_main + 2;
+	}
+
+	&__menu-list {
+		position: absolute;
+		right: 0;
+		top: 30px;
+		@include clearfix;
+	}
+
+	&__menu-item {
+		float: left;
+		margin-left: 33px;
+
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+
+	&__menu-link {
+		@include inlineblock;
+		padding: 11px 0;
+		line-height: 15px;
+		color: $main_grey;
+		font-family: $font-semibold;
+		font-size: $font-size_main + 2;
+		@include transition (.3s);
+		
+		&:hover {
+			color: $main_orange;
+		}
+	}
+}
+
+.logo-text {
+	position: absolute;
+	top:0;
+	left:-99999px;
+	}
+
+.socials {
+	position: absolute;
+	top: 25px;
+	left: 0;
+	@include clearfix;
+
+		&__item {
+			float:left;
+			margin-left: 16px;
+			
+		&:first-child {
+			margin-left: 0;
+		}
+
+			&_fb:hover {
+				background: url('../img/icons-s2be6a75896.png') 0 -96px no-repeat;
+			}
+
+			&_vk:hover {
+				background: url('../img/icons-s2be6a75896.png') 0 -480px no-repeat;
+			}
+			
+			&_tw:hover {
+				background: url('../img/icons-s2be6a75896.png') 0 -288px no-repeat;
+			}
+		}
+
+		&__link {
+			display:block;
+			width: 27px;
+			height: 27px;
+			@include transition (.3s);
+			text-indent: -99999px;
+		}
+}
+
+$socials-map: sprite-map('icons/*.png', $spacing: 70px);
+@each $social in $socials {
+	.socials__item_#{$social} {
+		@include get-sprite($socials-map, $social);
+	}
+}
+
+.header__top {
+	background-color: $main_white;
+	border-bottom:2px solid $main_border;
+		.container {
+			min-height: 77px;
+		}
+
+		&:after {
+			border:2px solid $main_border;
+		}			
+}
+.header__bottom{
+	.container {
+		min-height: 94px;
+	}
+}

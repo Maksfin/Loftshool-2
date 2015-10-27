@@ -1,0 +1,23 @@
+header.header
+	.header__top
+		.container
+			ul.socials
+				each social in socials
+					li(class="socials__item socials__item_" + social)
+						a(href="#").socials__link= social
+			.header__address ул. Маяковская 6, офис 17
+			a(href="tel:+79211231213").header__phone
+				span.header__phone-num +7 (921) 123-12-13
+	.header__bottom
+		.container
+			a(href="#" title="COOLTECH").header__logo
+				img(src="../img/elements/logo.png" alt="COOLTECH").header__logo-img
+				span.logo-text COOLTECH
+			.header__seach
+				form(action="#" method="get").header__seach-form
+					input(type="text" placeholder="Что будем искать").header__seach-input
+					input(type="submit" value="Найти").header__seach-submit
+			+ul('header__menu', ['Карта проезда', 'История заказов', 'Корзина'], 0, true)
+
+
+

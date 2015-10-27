@@ -1,0 +1,72 @@
+.content {
+	float:right;
+	width: 742px;
+}
+.sort {
+	min-height: 51px;
+	background:#e4ebee;
+	color: #5d656c;
+	font-size: $font-size_main;
+	border:1px solid $main_border-grey;
+	box-sizing:border-box;
+	@include border-radius ($radius: 5px);
+	overflow: hidden;
+	@include clearfix;
+
+	&__left {
+		@include inlineblock;
+	}
+
+	&__select-wrap {
+		@include clearfix;
+	}
+
+	&__title {
+		float:left;
+		padding:15px 10px 17px 40px;
+		&_view {
+			padding-left: 12px;
+		}
+	}
+
+	&__select {
+		float:left;
+		padding:10px 0 13px;
+	}
+
+	&__select-item {
+		width: 143px;
+		height: 28px;
+	}
+
+	&__right {
+		float:right;
+		min-width: 267px;
+	}
+	
+	&__view-item {
+		float:left;
+		height: 50px;
+		width: 50px;
+		border-left:1px solid $main_border-grey;
+		cursor:pointer;
+	}
+	&__view-link {
+		display:block;
+		text-indent:-9999px;
+	}
+
+	&__view {
+		@include clearfix;
+	}
+}
+
+@each $item in $views {
+	.sort__view-item_#{$item} {
+		background: url(../img/elements/#{$item}.png) no-repeat center center;
+		opacity:.5;
+		&:hover {
+			opacity:1;
+		}
+	}
+}
