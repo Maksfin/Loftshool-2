@@ -1,5 +1,5 @@
 
-@import "icons/*.png";
+// @import "icons/*.png";
 
 .header {
 	 min-width: $container-width +20;
@@ -13,7 +13,7 @@
 		color: $main_grey;
 		line-height: 27px;
 		padding-left: 20px;
-		background: url("../img/elements/map.png") 0 5px no-repeat;
+		background: url(../img/elements/map.png) 0 5px no-repeat;
 	}
 
 	&__phone {
@@ -21,10 +21,12 @@
 		font-family: $font-semibold;
 		color: $main_grey;
 		position: absolute;
-		line-height: 27px;
+		line-height: 24px;
+		padding-left: 20px;
 		right: 0;
 		top: 25px;
 		text-decoration: none;
+		background: url(../img/elements/phone.png) 0 5px no-repeat;
 	}
 
 	&__logo {

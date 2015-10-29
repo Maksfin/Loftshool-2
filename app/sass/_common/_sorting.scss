@@ -1,6 +1,7 @@
 .content {
 	float:right;
 	width: 742px;
+	@include clearfix;
 }
 .sort {
 	min-height: 51px;
@@ -9,6 +10,7 @@
 	font-size: $font-size_main;
 	border:1px solid $main_border-grey;
 	box-sizing:border-box;
+	margin-bottom: 21px;
 	@include border-radius ($radius: 5px);
 	overflow: hidden;
 	@include clearfix;

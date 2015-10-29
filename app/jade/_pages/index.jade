@@ -38,26 +38,34 @@ block content
 										.products__left
 											.products__slideshow
 												.products__slideshow-display
-													a(href="#").products__slideshow-display-link
-														img(src="").products__slideshow-display-img
+													a(href="").products__slideshow-display-link
+														img(src="http://lorempixel.com/500/500/technics/").products__slideshow-display-img
 													ul.products__slideshow-list
 														-for (var j = 0; j < 3; j++)
 															li.products__slideshow-item
 																a(href="#").products__slideshow-link
-																	img(src="").products__slideshow-item-img
-												.products__article
-													.products__article-text Артикул
-													.products__article-number 359110
-											.products__desc
-												.product__desc-title Samsung GT-I9301I GALAXY S 3
-												ul.products__desc-list
-													-for (item in desc)
-														li.products__desc-item
-															.products__desc-left= item
-															.products__desc-right= desc[item]
+																	img(src="http://lorempixel.com/100/100/technics/").products__slideshow-item-img
+											.products__article
+												.products__article-text Артикул
+												.products__article-number 359110
+											.products__title
+												.products__title-text Samsung GT-I9301I GALAXY S 3
+											ul.products__desc-list
+												-for (item in desc)
+													li.products__desc-item
+														.products__desc-left= item
+														.products__desc-right= desc[item]
+											.products__rating-wrap
+												ul.products__rating-list
+													-for (var c = 0; c < 4; c++)
+														li.products__rating-item.products__rating-item_active
+															a(href="#" class="products__raiting-link")
+													li.products__rating-item
+														a(href="#" class="products__raiting-link")
+												.products__rating-status 4			
 										.products__right
 											.products__price-wrap
-												.products__price 10 990
+												.products__price 10 990 ₽
 											.products__info-wrap
 												a(href="#").products__btn
 													| В корзину
