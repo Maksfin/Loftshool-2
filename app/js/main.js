@@ -141,5 +141,11 @@ if ($('.accordeon').length) {
  if ($('.products__rating').length) {
  	RatingModule.init();
  }
+
+ if ($('.sort__select-item').length) {
+ 	$('.sort__select-item').select2({
+ 		minimumResultsForSearch: Infinity
+ 	});
+ }
 }); // --> end
  

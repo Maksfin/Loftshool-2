@@ -15,9 +15,11 @@ $general-sprite: sprite-map('elements/*.png', $spacing: 70px);
 
 // Plugins
 @import '_plugins/_jquery-ui';
+@import '_plugins/_select2';
 
 // Widgets
 @import '_widgets/_slider';
+@import '_widgets/_select';
 
 // Section
 @import '_common/_header';
