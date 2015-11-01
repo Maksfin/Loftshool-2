@@ -28,8 +28,7 @@
 
 .products__slideshow {
 	width: 140px;
-	float:left;
-	// margin-bottom: 15px;	
+	float:left;	
 }
 
 .products__slideshow-display {
@@ -41,7 +40,7 @@
 	height: 136px;
 	background:$main_white;
 	border: 1px solid $main_border-grey;
-	@include border-radius ($radius: 2px);
+	@include border-radius ($radius: 3px);
 	overflow:hidden;
 	position: relative;
 	display: block;
