@@ -1,4 +1,4 @@
-//- Fonts generator
+ // Fonts generator
 @mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
 	$src: null;
 
@@ -26,13 +26,23 @@
 	}
 }
 
-// Inline-block
-@mixin inlineblock {
+ // Inline-block
+@mixin inlineblock ($value: top){
 	display: inline-block;
-	vertical-align: top;
+	vertical-align: $value;
 }
 
-// Cleardix
+// Absolute centered
+@mixin center {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+// Clearfix
 @mixin clearfix{
 
 	&:before,
@@ -87,16 +97,21 @@
 }
 
 // Sprite generator
-@mixin get-sprite ($map, $icon) {
-	$sprite-image: sprite-file($map, $icon);
+@mixin get-sprite ($map, $sprite, $repeat: no-repeat, $height: true, $width: true) {
+	$sprite-image: sprite-file($map, $sprite);
 	$sprite-map: sprite-url($map);
-	$sprite-position: sprite-position($map, $icon);
+	$sprite-position: sprite-position($map, $sprite);
+	$sprite-layout: smart;
 
 	background: $sprite-map $sprite-position no-repeat;
 
-	$sprite-height: image-height($sprite-image);
-	$sprite-width: image-width($sprite-image);
+	@if ($height == true) {
+		$sprite-height: image-height($sprite-image);
+	 	height: $sprite-height;
+	}
 
-	// height: $sprite-height;
-	// width: $sprite-width;
+	@if ($width == true) {
+		$sprite-width: image-width($sprite-image);
+		width: $sprite-width;
+	}
 }

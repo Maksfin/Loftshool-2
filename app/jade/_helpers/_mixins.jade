@@ -1,21 +1,14 @@
 //- List generator item_active
 mixin ul(className, items, activeElem, onlyList)
 	if(onlyList)
-		ul(class= className + '-list')
+		ul(class= className + '__list')
 			each item, index in items
-				li(class= className + "-item")
-					a(href="#" class= className + "-link" + ((activeElem === index) ? ' ' + className + '-link_active' : '')  title='#{item}')= item
+				li(class= className + "__item" + ((activeElem === index) ? ' ' + className + '__item_active' : ''))
+					a(href="#" class= className + "__link" title='#{item}')= item	
 	else
 		nav(class= className)
 			.container
 				ul(class= className + '__list')
 					each item, index in items
-						li(class= className + '__item')
-							a(href="#" class= className + "__link" + ((activeElem === index) ? ' ' + className + '__link_active' : '') title='#{item}')= item
-
-//- List generator link_active
-mixin ul_item(className, items, activeElem)
-	ul(class= className + '-list')
-		each item, index in items
-			li(class= className + "-item" + ((activeElem === index) ? ' ' + className + '-item_active' : ''))
-				a(href="#" class= className + "-link" title='#{item}')= item							
+						li(class= className + "__item" + ((activeElem === index) ? ' ' + className + '__item_active' : ''))
+							a(href="#" class= className + "__link" title='#{item}')= item

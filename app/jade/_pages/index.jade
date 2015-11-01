@@ -7,7 +7,7 @@ block content
 	article.content-wrapper
 		.container
 			.breadcrumbs
-				+ul('breadcrumbs__cat', breadList, 1, true)
+				+ul('breadcrumbs', breadList, 1, true)
 			h2.headline
 				| Мобильные телефоны
 			.wrap-content
@@ -28,8 +28,9 @@ block content
 							.sort__view
 								ul.sort__view-list
 									each item in views
-										li(class="sort__view-item"+ ' ' + "sort__view-item_" + '#{item}')
-											a(href="#" class="sort__view-link" title='#{item}')= item
+										li(class="sort__view-item"+ ' ' + "sort__view-item_" + item data-view= item)
+											a(href="#" class="sort__view-link" title= item)= item
+												.sort__view-icon
 					.products
 						ul.products__list
 							-for (var i = 0; i < 9; i++)
@@ -39,48 +40,48 @@ block content
 											.products__slideshow
 												.products__slideshow-display
 													a(href="").products__slideshow-display-link
-														img(src="http://lorempixel.com/500/500/technics/").products__slideshow-display-img
+														img(src="http://lorempixel.com/500/500/technics/" alt="Image").products__slideshow-display-img
 													ul.products__slideshow-list
 														-for (var j = 0; j < 3; j++)
 															li.products__slideshow-item
 																a(href="#").products__slideshow-link
-																	img(src="http://lorempixel.com/100/100/technics/").products__slideshow-item-img
-											.products__article
-												.products__article-text Артикул
-												.products__article-number 359110
-											.products__title
-												.products__title-text Samsung GT-I9301I GALAXY S 3
-											ul.products__desc-list
-												-for (item in desc)
-													li.products__desc-item
-														.products__desc-left= item
-														.products__desc-right= desc[item]
-											.products__rating-wrap
-												ul.products__rating-list
-													-for (var c = 0; c < 4; c++)
-														li.products__rating-item.products__rating-item_active
+																	img(src="http://lorempixel.com/100/100/technics/" + j alt="ImageSmall").products__slideshow-item-img
+												.products__article
+													.products__article-text Артикул
+													.products__article-number 359110
+											.products__desc
+												.products__desc-title Samsung GT-I9301I GALAXY S 3
+												ul.products__desc-list
+													-for (item in desc)
+														li.products__desc-item
+															.products__desc-left= item
+															.products__desc-right= desc[item]
+												.products__rating
+													ul.products__rating-list
+														-for (var c = 0; c < 4; c++)
+															li.products__rating-item.products__rating-item_active
+																a(href="#" class="products__raiting-link")
+														li.products__rating-item
 															a(href="#" class="products__raiting-link")
-													li.products__rating-item
-														a(href="#" class="products__raiting-link")
-												.products__rating-status 4			
+													.products__rating-status 4
 										.products__right
-											.products__price-wrap
+											.products__info-top
 												.products__price 10 990 ₽
-											.products__info-wrap
+											.products__info-bottom
 												a(href="#").products__btn
 													| В корзину
 												.products__existence
 													| В наличии
 					.pagination
 						ul.pagination__list
-							li.pagination__item
+							li.pagination__item.pagination__item_prev
 								a(href="#").pagination__link
 									.pagination__value-prev
-							- for (var i = 0; i < 3; i++)
+							- for (var i = 1; i < 4; i++)
 								li.pagination__item
 									a(href="#").pagination__link
 										.pagination__value= i
-							li.pagination__item
+							li.pagination__item.pagination__item_next
 								a(href="#").pagination__link
 									.pagination__value-next
 			.important

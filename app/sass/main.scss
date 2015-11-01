@@ -1,10 +1,17 @@
 // Initialization 
-@import '_helpers/_vars';
-@import '_helpers/_mixins';
-@import '_base/_fonts';
+@import 'compass';
 
-// Base layout
-@import '_common/_overall';
+// Normalize
+@import '_base/_normalize';
+
+// Base settings
+@import '_helpers/_mixins';
+@import '_helpers/_vars';
+@import '_base/_fonts';
+@import '_base/_overall';
+
+// Sprites general elements
+$general-sprite: sprite-map('elements/*.png', $spacing: 70px);
 
 // Section
 @import '_common/_header';
@@ -13,3 +20,5 @@
 @import '_common/_sidebar';
 @import '_common/_sorting';
 @import '_common/_products';
+@import '_common/_important-text.scss';
+@import '_common/_footer';
