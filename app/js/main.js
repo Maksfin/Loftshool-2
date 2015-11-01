@@ -1,4 +1,4 @@
-var myModule = (function() {
+var AccordeonModule = (function() {
 
 	// прослушка событий
 		_setUpListners = function() {
@@ -45,35 +45,101 @@ var myModule = (function() {
 			
 	};
 
-	 var _slider = function () {
-        $( "#slider-range" ).slider({
-            range: true,
-            min: 1000,
-            max: 30000,
-            values: [ 5000, 15000 ],
-            slide: function( event, ui ) {
-                $('.price__input-from').val(ui.values[ 0 ]);
-                $('.price__input-to').val(ui.values[ 1 ]);
-            }
-        });
-
-        $('.price__input-from').val($( "#slider-range" ).slider( "values", 0 ));
-        $('.price__input-to').val($( "#slider-range" ).slider( "values", 1 ));
-    }
-	// публичные св-ва и методы
+	// публичные методы
 	return {
 		init : function() {
 			_setUpListners();
-			_slider();
 		}
 	};
+})();
+
+var SliderModule = (function() {
+  
+return {
+		init : function() { 
+			$( "#slider-range" ).slider({
+         range: true,
+         min: 1000,
+         max: 30000,
+         values: [ 5000, 15000 ],
+         slide: function( event, ui ) {
+             $('.price__input-from')
+             .val(ui.values[ 0 ]);
+             $('.price__input-to').val(ui.values[ 1 ]);
+         }
+     });
+
+     $('.price__input-from').val($( "#slider-range" ).slider( "values", 0 ));
+     $('.price__input-to').val($( "#slider-range" ).slider( "values", 1 ));	
+		}
+	};
+})();
+
+var RatingModule = (function () {
+
+	var _getStars = function (ratingQuality) {
+
+		var
+			starsArray = [];
+
+		for (var i = 0; i < 5; i++) {
+
+					var
+						starClassName = (i < ratingQuality) ? 'products__rating-item products__rating-item_active' : 'products__rating-item';
+
+					var		
+						star = $('<li>', {
+							class : starClassName
+						});
+
+					starsArray.push(star);
+				}
+
+			return starsArray;
+		}
+
+	var _generatorMarkup = function (ratingQuality, elemToAppend) {
+		var
+			ul = $('<ul>', {
+				class : 'products__rating-list',
+				html : _getStars(ratingQuality)
+		});
+
+		var 
+			ratingShow = $('<div>', {
+			class : 'products__rating-status',
+			text : ratingQuality
+		});
+
+		elemToAppend.append([ul, ratingShow]);	
+	}
+
+	return {
+		init: function () {
+			$('.products__rating').each(function () {
+				var
+					$this = $(this),
+					ratingQuality = parseInt($this.data('rating'));
+
+				_generatorMarkup(ratingQuality, $this);
+
+				});
+			}
+		}	
 })();
 
 $(document).ready(function($) {
 	
 if ($('.accordeon').length) {
- 	myModule.init();
+ 	AccordeonModule.init();
  }
- 
+
+ if ($('#slider-range').length) {
+ 	SliderModule.init();
+ }
+
+ if ($('.products__rating').length) {
+ 	RatingModule.init();
+ }
 }); // --> end
  

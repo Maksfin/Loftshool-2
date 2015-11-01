@@ -57,14 +57,7 @@ block content
 														li(class="products__desc-item" + (!(index++ % 2) ? ' products__desc-item_color' : ''))
 															.products__desc-left= item
 															.products__desc-right= desc[item]
-												.products__rating
-													ul.products__rating-list
-														-for (var c = 0; c < 4; c++)
-															li.products__rating-item.products__rating-item_active
-																a(href="#" class="products__raiting-link")
-														li.products__rating-item
-															a(href="#" class="products__raiting-link")
-													.products__rating-status 4
+												div(class="products__rating" data-rating="2")
 										.products__right
 											.products__info-top
 												.products__price 10 990 ₽
