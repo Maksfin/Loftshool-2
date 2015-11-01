@@ -52,8 +52,9 @@ block content
 											.products__desc
 												.products__desc-title Samsung GT-I9301I GALAXY S 3
 												ul.products__desc-list
-													-for (item in desc)
-														li.products__desc-item
+													- var index = 0;
+													- for (item in desc)
+														li(class="products__desc-item" + (!(index++ % 2) ? ' products__desc-item_color' : ''))
 															.products__desc-left= item
 															.products__desc-right= desc[item]
 												.products__rating
@@ -76,14 +77,14 @@ block content
 						ul.pagination__list
 							li.pagination__item.pagination__item_prev
 								a(href="#").pagination__link
-									.pagination__value-prev
+									.pagination__value
 							- for (var i = 1; i < 4; i++)
 								li.pagination__item
 									a(href="#").pagination__link
 										.pagination__value= i
 							li.pagination__item.pagination__item_next
 								a(href="#").pagination__link
-									.pagination__value-next
+									.pagination__value
 			.important
 				.important__title
 					| Важная информация

@@ -13,6 +13,13 @@
 // Sprites general elements
 $general-sprite: sprite-map('elements/*.png', $spacing: 70px);
 
+
+// Plugins
+@import '_plugins/_jquery-ui';
+
+// Widgets
+@import '_widgets/_slider';
+
 // Section
 @import '_common/_header';
 @import '_common/_navigation';
@@ -20,5 +27,6 @@ $general-sprite: sprite-map('elements/*.png', $spacing: 70px);
 @import '_common/_sidebar';
 @import '_common/_sorting';
 @import '_common/_products';
+@import '_common/_pagination';
 @import '_common/_important-text.scss';
 @import '_common/_footer';

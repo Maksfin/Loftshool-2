@@ -1,7 +1,10 @@
+.products {
+	margin-bottom: 51px;
+}
 .products__list {
 	background:$main_white;
 	border:1px solid $main_border-grey;
-	@include border-radius ($radius: 5px);
+	@include border-radius (5px);
 	overflow: hidden;
 }
 .products__item {
@@ -12,7 +15,7 @@
 	}
 
 	&:hover {
-		@include box-shadow (0 0 10px 0.5 rgba(118, 118, 118, 0.75));
+		@include box-shadow (0 0 10px 1px rgba(118, 118, 118, 0.75));
 	}
 }
 
@@ -40,7 +43,7 @@
 	height: 136px;
 	background:$main_white;
 	border: 1px solid $main_border-grey;
-	@include border-radius ($radius: 3px);
+	@include border-radius (3px);
 	overflow:hidden;
 	position: relative;
 	display: block;
@@ -55,12 +58,12 @@
 
 .products__slideshow-list {
 	@include clearfix;
-	margin-left: -15px;
+	margin-left: -11px;
 }
 
 .products__slideshow-item {
 	float:left;
-	margin-left: 15px;
+	margin-left: 13px;
 }
 
 .products__slideshow-link {
@@ -106,7 +109,7 @@
 
 .products__desc-title {
 	font-family: $font-bold;
-	line-height: $font-size_main + 2px;
+	line-height: $font-size_main + 4px;
 	color: #010101;
 	margin-bottom: 24px;
 	padding-top: 9px;
@@ -217,3 +220,12 @@ $rating-map: sprite-map('elements/*.png', $spacing: 70px);
 		margin-right: 8px;
 	}
 }
+
+
+/*--------   grids-views    ------------*/
+@import "../_views/_grids";
+
+
+/*--------   lines-views    ------------*/
+@import "../_views/_lines";
+

@@ -1,0 +1,26 @@
+.ui-corner-all {
+	border:0 none;
+	@include border-radius (0px);
+}
+.ui-slider-horizontal {
+	margin-bottom: 15px;
+   height: 3px;
+   background: #dee1e4;
+
+   * {
+   	outline: none !important;
+   }
+
+	.ui-slider-handle {
+	top:3px;
+	margin-left: -4px;
+	border: none;
+	z-index:2;
+	cursor:pointer;
+	@include get-sprite($general-sprite, slider_handle);
+}
+
+.ui-slider-range {
+	background: $main_orange;
+	}
+}
