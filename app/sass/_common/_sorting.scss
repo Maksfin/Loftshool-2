@@ -93,6 +93,13 @@ $views-map: sprite-map('icons/views/*.png', $spacing: 70px);
 				@include get-sprite($views-map, $views_hover);
 			}
 		}
+
+		&.active {
+			$views_hover: $item + '_hover';
+			.sort__view-icon {
+				@include get-sprite($views-map, $views_hover);
+			}
+		}
 	}
 }
 	

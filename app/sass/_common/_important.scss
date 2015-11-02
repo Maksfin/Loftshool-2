@@ -1,0 +1,27 @@
+.important__title {
+	font-size: $font-size_main + 6px;
+	font-family: $font-bold;
+	color: #333;
+	margin-bottom: 18px;
+}
+.important__text {
+	p {
+		line-height: $font-size_main + 6px;
+		color: #000;
+		margin-bottom: 20px;
+		text-align:justify;
+
+	}
+	
+	.column {
+		&.first {
+			float: left !important;
+			width: 48% !important;
+		}
+		&.last {
+			float: right !important;
+			width: 48% !important;
+			
+		}
+	}
+}

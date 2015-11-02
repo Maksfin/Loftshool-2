@@ -1,4 +1,4 @@
-.products__list_grids {
+.products__list_grid {
 	border:none;
 	background: transparent;
 	overflow:visible;
@@ -89,12 +89,13 @@
 		position: static;
 		@include clearfix;
 		border:none;
-		padding: 0 6px;
+		padding: 0 2px;
 	}
 
 	.products__btn {
 		float:right;
 		margin-bottom: 0;
+		margin-left: 10px;
 	}
 
 	.products__existence {

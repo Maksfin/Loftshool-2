@@ -1,6 +1,5 @@
 var AccordeonModule = (function() {
 
-	// прослушка событий
 		_setUpListners = function() {
 		$('.accordeon__trigger').on('click', _openList);
 	},
@@ -32,20 +31,19 @@ var AccordeonModule = (function() {
 			if($this.hasClass('accordeon__trigger-open')) {
 				trigger.removeClass('accordeon__trigger-open')
 				.addClass('accordeon__trigger-close');
-				$this.removeClass('accordeon__trigger-open')
+				 $this.removeClass('accordeon__trigger-open')
 				.addClass('accordeon__trigger-close');
 			} else {
 				trigger.removeClass('accordeon__trigger-open')
 				.addClass('accordeon__trigger-close');
 				$this.removeClass('accordeon__trigger-close')
-				.addClass('accordeon__trigger-open');
+			 .addClass('accordeon__trigger-open');
 
 			}
 			 return false;
 			
 	};
 
-	// публичные методы
 	return {
 		init : function() {
 			_setUpListners();
@@ -53,6 +51,8 @@ var AccordeonModule = (function() {
 	};
 })();
 
+
+/*------ Slider ----------*/
 var SliderModule = (function() {
   
 return {
@@ -75,6 +75,36 @@ return {
 	};
 })();
 
+/*--------- Slide show ----------*/
+var SlideShow = (function() {
+
+	var _changeImage = function($this){
+		var
+			container = $this.closest('.products__slideshow'),
+			path = $this.find('img').attr('src'),
+			display = container.find('.products__slideshow-display-img');
+
+			$this.closest('.products__slideshow-item').addClass('active')
+			.siblings().removeClass('active');
+
+			display.fadeOut(function() {
+				$(this).attr('src', path).fadeIn();
+					
+				});
+			};	
+	
+	return{
+		init: function() {
+			$('.products__slideshow-link').on('click', function(e){
+				e.preventDefault();
+				_changeImage($(this));
+
+			})
+		}
+	}
+})();
+
+/*-----Raiting------*/
 var RatingModule = (function () {
 
 	var _getStars = function (ratingQuality) {
@@ -98,7 +128,7 @@ var RatingModule = (function () {
 			return starsArray;
 		}
 
-	var _generatorMarkup = function (ratingQuality, elemToAppend) {
+	var _generatorMarkup = function(ratingQuality, elemToAppend) {
 		var
 			ul = $('<ul>', {
 				class : 'products__rating-list',
@@ -116,7 +146,7 @@ var RatingModule = (function () {
 
 	return {
 		init: function () {
-			$('.products__rating').each(function () {
+			$('.products__rating').each(function() {
 				var
 					$this = $(this),
 					ratingQuality = parseInt($this.data('rating'));
@@ -128,8 +158,57 @@ var RatingModule = (function () {
 		}	
 })();
 
+/*----- Views --------*/
+var ViewsChange = (function() {
+	var _prevClass = ' ';
+
+	var _changeView = function($this) {
+		var 
+			item = $this.closest('.sort__view-item'),
+			view = item.data('view'),
+			list = $('.products__list'),
+			modification = 'products__list_',
+			classView = modification + view;
+
+			if (_prevClass == ' ') {
+				_prevClass = list.attr('class');
+			}
+			list.attr('class', _prevClass + ' ' + classView);
+	};
+
+	var _activeClass = function($this) {
+
+		$this.closest('.sort__view-item').addClass('active')
+				.siblings().removeClass('active');
+	}
+
+	return {
+		init: function() {
+			$('.sort__view-link').on('click', function(e) {
+				e.preventDefault();
+					_changeView($(this));
+					_activeClass($(this));
+			});
+		}
+	}
+})();
+
+
 $(document).ready(function($) {
-	
+
+	$('.accordeon__reset').on('click', function(e){
+ 		e.preventDefault();
+ 		var
+ 			$this = $(this),
+ 			container = $this.closest('.accordeon__item'),
+ 			checkbox = container.find('input:checkbox');
+
+ 			checkbox.each(function(){
+ 				$(this).removeProp('checked');
+ 		});
+ 	});
+
+
 if ($('.accordeon').length) {
  	AccordeonModule.init();
  }
@@ -147,5 +226,18 @@ if ($('.accordeon').length) {
  		minimumResultsForSearch: Infinity
  	});
  }
+
+ if ($('.products__list').length) {
+ 	ViewsChange.init();
+ }
+
+ if ($('.products__slideshow-display').length) {
+ 	SlideShow.init();
+ }
+
+ $('.important__text').columnize({
+ 		width:550
+ });
+
 }); // --> end
  

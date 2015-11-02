@@ -175,15 +175,13 @@
 .accordeon__trigger-open {
 
 	&:hover {
-		cursor:pointer;
-		background:#d9e5ea url(../img/elements/close.png) right 13px center no-repeat;;
+		background:#d9e5ea url(../img/elements/close.png) right 13px center no-repeat;
 	}
 }
 
 .accordeon__trigger-close {
 
 	&:hover {
-		cursor:pointer;
 		background:#d9e5ea url(../img/elements/open.png) right 13px center no-repeat;
 	}
 }	
