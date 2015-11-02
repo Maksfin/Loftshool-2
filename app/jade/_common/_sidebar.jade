@@ -5,8 +5,7 @@ sidebar.sidebar
 		.accordeon
 			ul.accordeon__list
 				li.accordeon__item
-					.accordeon__title
-						a(href="#").accordeon__trigger Наличие в магазине
+					a(href="#").accordeon__trigger.accordeon__trigger-close Наличие в магазине
 					.accordeon__inner
 						ul.choise__list
 							each item in items
@@ -16,8 +15,7 @@ sidebar.sidebar
 										.choise__item-elem
 										.choise__item-text= item
 				li.accordeon__item
-					.accordeon__title
-						a(href="#").accordeon__trigger.accordeon__trigger-close Бренды
+					a(href="#").accordeon__trigger.accordeon__trigger-close Бренды
 					.accordeon__inner
 						ul.choise__list.choise__list_checkbox
 							each item in brands
@@ -29,8 +27,7 @@ sidebar.sidebar
 						a(href="#" class="accordeon__reset")
 							| Сбросить фильтр
 				li.accordeon__item
-					.accordeon__title
-						a(href="#").accordeon__trigger.accordeon__trigger-close Цена
+					a(href="#").accordeon__trigger.accordeon__trigger-close Цена
 					.accordeon__inner
 						.price
 							.price__left
@@ -41,16 +38,14 @@ sidebar.sidebar
 								input(type="text" placeholder="13 000" class="price__input-to")
 						#slider-range 
 				li.accordeon__item
-					.accordeon__title
-						a(href="#").accordeon__trigger.accordeon__trigger-close Цвета
+					a(href="#").accordeon__trigger.accordeon__trigger-close Цвета
 					.accordeon__inner.accordeon__inner_clear
 						ul.choise__list-colors
 							each color in colors
 								li.choise__item-colors
 									a(href="#" class="choise__link-colors" style="background-color:#" + color)
 				li.accordeon__item.choise__list_checkbox
-					.accordeon__title
-						a(href="#").accordeon__trigger.accordeon__trigger-close Операционные системы
+					a(href="#").accordeon__trigger.accordeon__trigger-close Операционные системы
 					.accordeon__inner
 						ul.choise__list
 							each item in os
