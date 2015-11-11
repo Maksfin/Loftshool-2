@@ -5,13 +5,12 @@ var gulp = require("gulp"),
     wiredep = require('wiredep').stream,
     useref = require('gulp-useref'),
     uglify = require('gulp-uglify'),
-    // plumber = require('gulp-plumber'),
+    plumber = require('gulp-plumber'),
     del= require('del'),
     gulpif = require('gulp-if'),
     filter = require('gulp-filter'),
     size = require('gulp-size'),
     imagemin = require('gulp-imagemin'),
-    minifyCss = require('gulp-minify-css'),
     browserSync = require('browser-sync'),
     ftp = require('vinyl-ftp'),
     reload = browserSync.reload;
@@ -23,7 +22,7 @@ var gulp = require("gulp"),
 // Компилируем Jade в html
 gulp.task('jade', function() {
     gulp.src('app/jade/_pages/*.jade')
-    // .pipe(plumber())
+    .pipe(plumber())
     .pipe(jade({
        pretty: '\t'
       }))
@@ -35,7 +34,7 @@ gulp.task('jade', function() {
 // Sccs - Compass
 gulp.task('compass', function() {
   gulp.src('app/sass/**/*.scss')
-    // .pipe(plumber())
+    .pipe(plumber())
     .pipe(compass({
       config_file: 'config.rb', 
       css: 'app/css',
